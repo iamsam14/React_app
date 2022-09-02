@@ -9,6 +9,7 @@ class Movies extends Component {
 
   handleDelete = (movie) => {
     const movies = this.state.movies.filter((m) => m._id !== movie._id);
+    console.log(movie);
     this.setState({ movies });
   };
 
@@ -17,8 +18,7 @@ class Movies extends Component {
     const index = movies.indexOf(movie);
     movies[index] = { ...movies[index] };
     movies[index].liked = !movies[index].liked;
-    console.log(!movies[index].liked);
-    this.setState({ ...movies });
+    this.setState({ movies });
   };
 
   render() {
@@ -68,6 +68,25 @@ class Movies extends Component {
             })}
           </tbody>
         </table>
+        <nav aria-label="Page navigation example">
+          <ul class="pagination">
+            <li class="page-item">
+              <a class="page-link" href="#">
+                1
+              </a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">
+                2
+              </a>
+            </li>
+            <li class="page-item">
+              <a class="page-link" href="#">
+                3
+              </a>
+            </li>
+          </ul>
+        </nav>
       </React.Fragment>
     );
   }
